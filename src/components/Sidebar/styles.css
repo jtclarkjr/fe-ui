@@ -1,0 +1,46 @@
+.sidebar {
+  background-color: black;
+  height: 100vh;
+}
+
+.sidebar__logo__web {
+  max-width: 131px;
+  padding: 20px 20px 0 20px;
+}
+
+.sidebar__logo__mobile {
+  max-width: 40px;
+  padding: 20px 20px 0 20px;
+}
+.sidebar__logo__web path {
+  fill: var(--green);
+}
+
+.mobile path {
+  fill: var(--green);
+}
+.sidebar__separator {
+  background-color: #282828;
+  border: none;
+  height: 1px;
+  margin: 8px  20px ;
+  min-height: 1px;
+}
+.sidebar-mobile {
+  display: none;
+  padding: 15px 20px 10px 15px;
+  background-color: black;
+}
+.sidebar-mobile .sidebar__logo {
+  max-width: 30px;
+  padding: 0;
+}
+
+@media (max-width: 578px) {
+  .sidebar {
+    display: none;
+  }
+  .sidebar-mobile {
+    display: block;
+  }
+}
