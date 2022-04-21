@@ -1,14 +1,15 @@
-import React from 'react'
-import './styles.css'
+import React from 'react';
+import './styles.css';
 
 interface IPlay {
-  size?: 'regular' | 'big'
+  size?: 'regular' | 'big';
 }
 
-const Play: React.FC<IPlay> = ({size = 'regular'}) => {
-
+const Play: React.FC<IPlay> = ({ size = 'regular' }) => {
   return (
-    <button className={size === 'big' ? 'play play--big' : 'play hide'}>
+    <button
+      type="button"
+      className={size === 'big' ? 'play play--big' : 'play hide'}>
       <svg
         className="play__icon"
         xmlns="http://www.w3.org/2000/svg"
@@ -17,7 +18,7 @@ const Play: React.FC<IPlay> = ({size = 'regular'}) => {
         <path d="M3 22v-20l18 10-18 10z" />
       </svg>
     </button>
-  )
-}
+  );
+};
 
-export default Play
+export default Play;

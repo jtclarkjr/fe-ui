@@ -1,33 +1,33 @@
-import React, {useEffect, useState} from 'react'
-import {ICard} from '../../components/Card/Card'
-import Greeting from '../../components/Greeting/Greeting'
-import RecentlyPlayed from '../../components/RecentlyPlayed/RecentlyPlayed'
+import React, { useEffect, useState } from 'react';
+import { ICard } from '../../components/Card/Card';
+import Greeting from '../../components/Greeting/Greeting';
+import RecentlyPlayed from '../../components/RecentlyPlayed/RecentlyPlayed';
 import {
   getGreeting,
   getRecentPlayed,
   ISuggestion,
-} from '../../store/middleware/api.middleware'
-import './styles.css'
+} from '../../services/serviceApi';
+import './styles.css';
 
 const Home = () => {
-  const [greetingSuggestions, setGreetingSuggestions] = useState<Array<ISuggestion>>([])
-  const [greetingSuggestionsLoading, setGreetingSuggestionsLoading] = useState(true)
-  const [recentPlayed, setRecentPlayed] = useState<Array<ICard>>([])
-  const [recentPlayedLoading, setRecentPlayedLoading] = useState(true)
+  const [greetingSuggestions, setGreetingSuggestions] = useState<Array<ISuggestion>>([]);
+  const [greetingSuggestionsLoading, setGreetingSuggestionsLoading] = useState(true);
+  const [recentPlayed, setRecentPlayed] = useState<Array<ICard>>([]);
+  const [recentPlayedLoading, setRecentPlayedLoading] = useState(true);
 
   useEffect(() => {
     // Without async/await so they load async
 
-    getGreeting().then(res => {
-      setGreetingSuggestions(res)
-      setGreetingSuggestionsLoading(false)
-    })
+    getGreeting().then((res) => {
+      setGreetingSuggestions(res);
+      setGreetingSuggestionsLoading(false);
+    });
 
-    getRecentPlayed().then(res => {
-      setRecentPlayed(res)
-      setRecentPlayedLoading(false)
-    })
-  }, [])
+    getRecentPlayed().then((res) => {
+      setRecentPlayed(res);
+      setRecentPlayedLoading(false);
+    });
+  }, []);
 
   return (
     <>
@@ -37,7 +37,7 @@ const Home = () => {
       />
       <RecentlyPlayed albums={recentPlayed} loading={recentPlayedLoading} />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

@@ -1,25 +1,25 @@
-import React from 'react'
-import {useHistory} from 'react-router-dom'
-import './styles.css'
-import {ISuggestion} from '../../store/middleware/api.middleware'
-import Chip from '../Chip/Chip'
-import Skeleton from '../Skeleton/Skeleton'
-import {useAppDispatch} from '../../store/hooks'
-import {set} from '../../store/reducers/albumSlice'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import './styles.css';
+import { ISuggestion } from '../../services/serviceApi';
+import Chip from '../Chip/Chip';
+import Skeleton from '../Skeleton/Skeleton';
+import { useAppDispatch } from '../../store/hooks';
+import { set } from '../../store/reducers/albumSlice';
 
 interface IGreeting {
-  greetingSuggestions: Array<ISuggestion>
-  loading: boolean
+  greetingSuggestions: Array<ISuggestion>;
+  loading: boolean;
 }
 
-const Greeting: React.FC<IGreeting> = ({greetingSuggestions, loading}) => {
-  const dispatch = useAppDispatch()
-  const history = useHistory()
+const Greeting: React.FC<IGreeting> = ({ greetingSuggestions, loading }) => {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const handleChip = (id: number, title: string, thumbnail: string) => {
-    dispatch(set({title, thumbnail}))
-    history.push(`/album/${id}`)
-  }
+    dispatch(set({ title, thumbnail }));
+    navigate(`/album/${id}`);
+  };
 
   // Add a function that determines time of day for welcome title
 
@@ -35,14 +35,14 @@ const Greeting: React.FC<IGreeting> = ({greetingSuggestions, loading}) => {
             <Skeleton height="80px" />
           </>
         ) : (
-          greetingSuggestions.map(suggestion => (
+          greetingSuggestions.map((suggestion) => (
             <Chip
               thumbnail={suggestion.thumbnail}
               onClick={() =>
                 handleChip(
                   suggestion.id,
                   suggestion.title,
-                  suggestion.thumbnail
+                  suggestion.thumbnail,
                 )
               }
               key={suggestion.id}
@@ -53,7 +53,7 @@ const Greeting: React.FC<IGreeting> = ({greetingSuggestions, loading}) => {
         )}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Greeting
+export default Greeting;

@@ -1,14 +1,14 @@
-import React from 'react'
-import './styles.css'
-import Heart from '../Heart/Heart'
+import React from 'react';
+import './styles.css';
+import Heart from '../Heart/Heart';
 
 export interface ITrack {
-  name: string,
-  length: string,
-  number: number
+  name: string;
+  length: string;
+  number: number;
 }
 
-const Track: React.FC<ITrack> = ({name, length, number}) => {
+const Track: React.FC<ITrack> = ({ name, length, number }) => {
   return (
     <div className="track">
       <div className="track__container">
@@ -21,7 +21,7 @@ const Track: React.FC<ITrack> = ({name, length, number}) => {
         <span className="track__length">{length}</span>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Track
+export default Track;

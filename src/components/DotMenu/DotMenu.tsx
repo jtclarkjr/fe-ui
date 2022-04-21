@@ -1,14 +1,14 @@
-import React from 'react'
-import './styles.css'
+import React from 'react';
+import './styles.css';
 
 const DotMenu = () => {
   return (
     <div className="dotmenu">
-      <div/>
-      <div/>
-      <div/>
+      <div />
+      <div />
+      <div />
     </div>
-  )
-}
+  );
+};
 
-export default DotMenu
+export default DotMenu;

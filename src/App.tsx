@@ -1,11 +1,11 @@
-import React from 'react'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
-import {Provider} from 'react-redux'
-import Home from './views/Home/Home'
-import Album from './views/Album/Album'
-import Sidebar from './components/Sidebar/Sidebar'
-import './styles/App.css'
-import {store} from './store/store'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import Home from './views/Home/Home';
+import Album from './views/Album/Album';
+import Sidebar from './components/Sidebar/Sidebar';
+import './styles/App.css';
+import { store } from './store/store';
 
 const App = () => {
   return (
@@ -14,19 +14,15 @@ const App = () => {
         <div className="app">
           <Sidebar />
           <main className="main">
-            <Switch>
-              <Route path="/album/:id">
-                <Album />
-              </Route>
-              <Route exact path="/">
-                <Home />
-              </Route>
-            </Switch>
+            <Routes>
+              <Route path="/album/:id" element={<Album />} />
+              <Route path="/" element={<Home />} />
+            </Routes>
           </main>
         </div>
       </Router>
     </Provider>
-  )
-}
+  );
+};
 
-export default App
+export default App;
